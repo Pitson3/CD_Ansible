@@ -12,8 +12,8 @@
 - name: "Install Nodejs"
   become: true
   yum:
-    name: ['nodejs']
-    state: present
+    name: ["nodejs", "npm"]
+    state: latest
     update_cache: yes
 
 - name: "install pm2"
@@ -26,15 +26,15 @@
 
 #Adapted from the classroom solution
 - name: "create ~/web"
-  ansible.builtin.file:
+  file:
     path: ~/web
     state: directory
     mode: '0755'
 
 - name: "Install index.js"
   copy:
-    src: index.js
-    dest: ~/web/index.js
+    src: "files/index.js"
+    dest: "~/web/index.js"
     backup: yes 
 
 #Experiment the clasroom solution
