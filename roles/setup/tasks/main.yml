@@ -11,7 +11,7 @@
 
 - name: "Install Nodejs"
   become: true
-  yum:
+  ansible.builtin.yum:
     name: ["nodejs", "npm"]
     state: latest
     update_cache: yes
