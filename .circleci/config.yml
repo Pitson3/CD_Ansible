@@ -86,7 +86,7 @@ jobs:
 workflows:
   my-workflow:
     jobs:
-      #- say-hello
+      - say-hello
       - create_infrastructure
       #- configure_infrastructure
       - smoke_test
