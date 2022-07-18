@@ -70,15 +70,15 @@ jobs:
       - run: apk add --update curl
       - run:
           name: Test Job #smoke test
-          command: return 1 #|
-            #URL="https://blog.udacity.com/"
+          command: | #return 1
+            URL="https://blog.udacity.com/"
             # Test if website exists
-            #if curl -s --head ${URL} 
-            #then
-             # return 0
-            #else
-             # return 1
-           # fi
+            if curl -s --head ${URL} 
+            then
+              return 0
+            else
+              return 1
+            fi
       - destroy_environment
 
   create_and_deploy_front_end:
